@@ -1,0 +1,37 @@
+{
+  "name": "wispdp",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "private": true,
+  "packageManager": "pnpm@9.15.9",
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "build": "turbo run build",
+    "dev": "turbo run dev",
+    "lint": "turbo run lint",
+    "test": "pnpm --filter @wispdb/core test",
+    "test:smoke": "pnpm --filter @wispdb/core test -- --config vitest.smoke.config.ts",
+    "bench:cpu": "pnpm --filter @wispdb/bench bench:cpu",
+    "e2e": "pnpm --filter playground e2e",
+    "bench:browser": "pnpm --filter playground bench:browser",
+    "bench:ci": "pnpm bench:cpu && pnpm e2e && pnpm bench:browser -- --ci",
+    "bench:gate": "tsx scripts/bench/check_gates.ts bench-results.json bench/gates.json",
+    "typecheck": "turbo run typecheck"
+  },
+  "keywords": [],
+  "author": "Mahesh Chandra Teja Garnepudi",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/node": "^22.0.0",
+    "eslint": "^9.0.0",
+    "prettier": "^3.0.0",
+    "tsx": "^4.0.0",
+    "tsup": "^8.0.0",
+    "turbo": "^2.0.0",
+    "typescript": "^5.0.0",
+    "vitest": "^2.0.0"
+  }
+}

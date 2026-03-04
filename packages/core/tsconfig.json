@@ -1,0 +1,12 @@
+{
+  "extends": "../../tsconfig.base.json",
+  "compilerOptions": {
+    "types": ["vitest/globals"],
+    "baseUrl": ".",
+    "paths": {
+      "@wispdb/gpu": ["../gpu/src/index.ts"],
+      "@wispdb/gpu/*": ["../gpu/src/*"]
+    }
+  },
+  "include": ["src"]
+}

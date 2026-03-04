@@ -1,0 +1,63 @@
+{
+  "config": {
+    "N": 10000,
+    "dim": 64,
+    "k": 10,
+    "metric": "dot",
+    "nlist": 64,
+    "nprobeList": [
+      1,
+      2,
+      4,
+      8,
+      16
+    ],
+    "queries": 20,
+    "batchSize": 1000,
+    "seed": 1234,
+    "scale": 0.5,
+    "preferGPU": false,
+    "ping": {
+      "worker": true,
+      "crossOriginIsolated": true,
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/145.0.7632.6 Safari/537.36"
+    }
+  },
+  "ingest_ms_p50": 0.4661050000041723,
+  "ingest_ms_p95": 0.6062899999916553,
+  "search_ms_p50": 2.4200000017881393,
+  "search_ms_p95": 2.8500000089406967,
+  "ivf_search_ms_p50": 0.17500001192092896,
+  "ivf_search_ms_p95": 0.1899999976158142,
+  "ivf_recall_at_10": 0.6399999999999999,
+  "ivf_recall_by_nprobe": {
+    "1": 0.095,
+    "2": 0.175,
+    "4": 0.28500000000000003,
+    "8": 0.4549999999999999,
+    "16": 0.6399999999999999
+  },
+  "ivf_speedup": 15.000000235281496,
+  "cold_start_ms": 15.969999998807907,
+  "warm_start_ms": 124.74500000476837,
+  "warm_first_search_ms": 5.614999994635582,
+  "frame_p95_ms": 16.670000000000073,
+  "memory": {
+    "usedJSHeapSize": 10000000,
+    "totalJSHeapSize": 10000000,
+    "jsHeapSizeLimit": 3760000000
+  },
+  "stats": {
+    "vectors": {
+      "dim": 64,
+      "chunkRows": 4096,
+      "chunks": 3,
+      "liveCount": 10000,
+      "deletedCount": 0,
+      "capacity": 12288,
+      "nextId": 10000,
+      "freeListSize": 0
+    },
+    "idCount": 10000
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "name": "@wispdb/bench",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "bench:cpu": "tsx --loader ./loader.mjs src/bench_cpu.ts --json"
+  },
+  "dependencies": {
+    "@wispdb/core": "workspace:*"
+  },
+  "devDependencies": {
+    "tsx": "^4.0.0"
+  }
+}

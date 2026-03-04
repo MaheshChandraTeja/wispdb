@@ -1,0 +1,25 @@
+{
+  "name": "playground",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "lint": "eslint .",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "test": "vitest run",
+    "e2e": "playwright test --config playwright.config.mjs",
+    "bench:browser": "playwright test e2e/bench.spec.ts --reporter=line --config playwright.config.mjs"
+  },
+  "dependencies": {
+    "@wispdb/core": "workspace:*",
+    "@wispdb/gpu": "workspace:*",
+    "@wispdb/utils": "workspace:*"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.49.1",
+    "vite": "^5.0.0",
+    "typescript": "^5.0.0",
+    "vitest": "^2.0.0"
+  }
+}

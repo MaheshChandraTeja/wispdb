@@ -1,0 +1,8 @@
+{
+  "search_p95_ms_max": 80,
+  "ingest_p95_ms_max": 50,
+  "ivf_recall_at_10_min": 0.6,
+  "ivf_speedup_min": 2.0,
+  "warm_start_ms_max": 200,
+  "frame_p95_ms_max": 20
+}
