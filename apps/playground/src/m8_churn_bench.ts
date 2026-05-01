@@ -1,4 +1,4 @@
-import { PersistentBruteForceDB, IVFFlatIndex, type MaintenanceRequest, type MaintenanceResponse } from "@wispdb/core";
+import { PersistentBruteForceDB, IVFFlatIndex, type MaintenanceRequest, type MaintenanceResponse } from "wispdb";
 
 function mulberry32(seed: number) {
   return () => {
@@ -91,7 +91,7 @@ export async function runM8ChurnBench(log: (s: string) => void, opts?: Partial<{
   log(`IVF baseline: median ${ivfBase.median.toFixed(2)} ms, p95 ${ivfBase.p95.toFixed(2)} ms`);
 
   const worker = new Worker(
-    new URL("@wispdb/core/maintenance/maintenance.worker.ts", import.meta.url),
+    new URL("../../../packages/core/src/maintenance/maintenance.worker.ts", import.meta.url),
     { type: "module" },
   );
 

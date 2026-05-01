@@ -1,7 +1,7 @@
-import { BruteForceIndex } from "@wispdb/core";
-import { IVFFlatIndex } from "@wispdb/core";
+import { BruteForceIndex } from "wispdb";
+import { IVFFlatIndex } from "wispdb";
 
-export async function runM7Bench(log: (s: string) => void, gpuStuff: any) {
+export async function runM7Bench(log: (s: string) => void, _gpuStuff: any) {
   const dim = 128;
   const N = 50_000;
   const Q = 50;

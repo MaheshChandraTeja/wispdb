@@ -5,7 +5,7 @@ test("persistence reload + crash snapshot recovery", async ({ page }) => {
   await page.goto("/");
 
   const seed = await page.evaluate(async (name) => {
-    const { PersistentBruteForceDB } = await import("/@id/@wispdb/core");
+    const { PersistentBruteForceDB } = await import("/@id/wispdb");
     const dim = 32;
     const v1 = new Float32Array(dim).fill(0.01);
     const v2 = new Float32Array(dim).fill(0.02);
@@ -33,7 +33,7 @@ test("persistence reload + crash snapshot recovery", async ({ page }) => {
   await page.reload();
 
   const result = await page.evaluate(async ({ name, seed }) => {
-    const { PersistentBruteForceDB } = await import("/@id/@wispdb/core");
+    const { PersistentBruteForceDB } = await import("/@id/wispdb");
     const dim = seed.dim;
     const v1 = new Float32Array(seed.v1);
     const v2 = new Float32Array(seed.v2);

@@ -1,5 +1,11 @@
 import type { Msg, Req, Res, Metric } from "./protocol";
 
+function copyArrayBuffer(view: ArrayBufferView): ArrayBuffer {
+  const copy = new Uint8Array(view.byteLength);
+  copy.set(new Uint8Array(view.buffer, view.byteOffset, view.byteLength));
+  return copy.buffer;
+}
+
 export class WispWorkerClient {
   private w: Worker;
   private nextId = 1;
@@ -36,7 +42,7 @@ export class WispWorkerClient {
 
   upsertBatch(ids: string[], vectors: Float32Array, dim: number, metas?: any[]) {
     // Transfer the underlying buffer: zero-copy move (main loses access after postMessage)
-    const buf = vectors.buffer.slice(vectors.byteOffset, vectors.byteOffset + vectors.byteLength);
+    const buf = copyArrayBuffer(vectors);
     return this.call({ t: "upsertBatch", ids, vectors: buf, dim, metas }, [buf]);
   }
 
@@ -53,12 +59,12 @@ export class WispWorkerClient {
   }
 
   ivfSearch(query: Float32Array, k: number, nprobe: number) {
-    const buf = query.buffer.slice(query.byteOffset, query.byteOffset + query.byteLength);
+    const buf = copyArrayBuffer(query);
     return this.call({ t: "ivfSearch", query: buf, k, nprobe }, [buf]);
   }
 
   search(query: Float32Array, k: number, where?: any, scoreThreshold?: number | null) {
-    const buf = query.buffer.slice(query.byteOffset, query.byteOffset + query.byteLength);
+    const buf = copyArrayBuffer(query);
     return this.call({ t: "search", query: buf, k, where, scoreThreshold: scoreThreshold ?? null }, [buf]);
   }
 

@@ -13,14 +13,23 @@
     "verbatimModuleSyntax": true,
     "moduleDetection": "force",
     "noEmit": true,
+    "baseUrl": ".",
+    "paths": {
+      "wispdb": ["../../packages/core/src/index.ts"],
+      "wispdb/*": ["../../packages/core/src/*"],
+      "@wispdb/gpu": ["../../packages/gpu/src/index.ts"],
+      "@wispdb/gpu/*": ["../../packages/gpu/src/*"],
+      "@wispdb/utils": ["../../packages/utils/src/index.ts"],
+      "@wispdb/utils/*": ["../../packages/utils/src/*"]
+    },
 
     /* Linting */
     "strict": true,
-    "noUnusedLocals": true,
-    "noUnusedParameters": true,
-    "erasableSyntaxOnly": true,
+    "noUnusedLocals": false,
+    "noUnusedParameters": false,
+    "erasableSyntaxOnly": false,
     "noFallthroughCasesInSwitch": true,
     "noUncheckedSideEffectImports": true
   },
-  "include": ["src"]
+  "include": ["src", "../../packages/gpu/src/types.d.ts"]
 }

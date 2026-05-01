@@ -1,4 +1,4 @@
-import { PersistentBruteForceDB } from "@wispdb/core";
+import { PersistentBruteForceDB } from "wispdb";
 
 export async function runM4Demo(log: (s: string) => void) {
   const dim = 128;

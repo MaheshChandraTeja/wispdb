@@ -27,7 +27,7 @@ function cpuScoreAll(vectors: Float32Array, dim: number, query: Float32Array, me
   const scores = new Float32Array(n);
 
   for (let i = 0; i < n; i++) {
-    let base = i * dim;
+    const base = i * dim;
 
     if (metric === "dot") {
       let s = 0;

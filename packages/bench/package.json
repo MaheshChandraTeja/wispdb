@@ -6,7 +6,7 @@
     "bench:cpu": "tsx --loader ./loader.mjs src/bench_cpu.ts --json"
   },
   "dependencies": {
-    "@wispdb/core": "workspace:*"
+    "wispdb": "workspace:*"
   },
   "devDependencies": {
     "tsx": "^4.0.0"

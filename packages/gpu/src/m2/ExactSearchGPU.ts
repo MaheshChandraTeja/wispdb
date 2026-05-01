@@ -416,8 +416,6 @@ export class ExactSearchGPU {
 			// GPU TopK: scores -> block topk -> reduce until <= 256 -> final topk
 			// Stage 1
 			const currentN = n;
-			let inIsScores = true;
-
 			const blockTopKScoresPipe = this.cache.getComputePipeline({
 				code: WGSL.blockTopKScores,
 				label: "blockTopKScores",
@@ -467,7 +465,6 @@ export class ExactSearchGPU {
 
 			// Reduce
 			let currentPairs = numBlocks1 * kk;
-			inIsScores = false;
 
 			while (currentPairs > 256) {
 				const nextBlocks = ceilDiv(currentPairs, 256);

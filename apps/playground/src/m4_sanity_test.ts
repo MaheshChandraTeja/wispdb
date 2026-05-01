@@ -1,4 +1,4 @@
-import { BruteForceIndex, type Metric } from "@wispdb/core";
+import { BruteForceIndex, type Metric } from "wispdb";
 import { isWebGPUAvailable } from "@wispdb/gpu";
 
 function mulberry32(seed: number) {

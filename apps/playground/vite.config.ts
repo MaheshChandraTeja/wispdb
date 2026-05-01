@@ -17,7 +17,7 @@ export default defineConfig({
         __dirname,
         "../../packages/gpu/src/index.ts",
       ),
-      "@wispdb/core": path.resolve(
+      "wispdb": path.resolve(
         __dirname,
         "../../packages/core/src/index.ts",
       ),

@@ -4,7 +4,7 @@ import type { Msg, Res } from "./protocol";
 import type { Metric } from "./protocol";
 
 // Use your real exports:
-import { PersistentBruteForceDB, IVFFlatIndex } from "@wispdb/core";
+import { PersistentBruteForceDB, IVFFlatIndex } from "wispdb";
 
 let db: PersistentBruteForceDB | null = null;
 let dim = 0;

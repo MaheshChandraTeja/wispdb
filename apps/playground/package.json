@@ -12,9 +12,9 @@
     "bench:browser": "playwright test e2e/bench.spec.ts --reporter=line --config playwright.config.mjs"
   },
   "dependencies": {
-    "@wispdb/core": "workspace:*",
     "@wispdb/gpu": "workspace:*",
-    "@wispdb/utils": "workspace:*"
+    "@wispdb/utils": "workspace:*",
+    "wispdb": "workspace:*"
   },
   "devDependencies": {
     "@playwright/test": "^1.49.1",

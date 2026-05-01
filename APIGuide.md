@@ -14,14 +14,14 @@ You will see `internalId` in search results and debug output. It’s useful for 
 - `"l2"`: distance-based ranking (often implemented as negative L2² so higher is better)
 ---
 ## Packages
-- `@wispdb/core`  
+- `wispdb`  
   Storage engine, metadata, brute-force search, IVF-Flat index, persistence wrapper, worker-friendly shapes.
 - `@wispdb/gpu`  
   WebGPU runtime + kernels used internally by core (most users don’t touch this directly).
 ---
 ## Quickstart (main thread)
 ### Brute-force exact search (GPU if available)
-import { BruteForceIndex } from "@wispdb/core";
+import { BruteForceIndex } from "wispdb";
 const dim = 128;
 const db = new BruteForceIndex({
   dim,

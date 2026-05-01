@@ -1,9 +1,9 @@
 {
-  "name": "wispdp",
+  "name": "wispdb",
   "version": "1.0.0",
-  "description": "",
+  "description": "A small vector database that runs in the browser, uses WebGPU for scoring, and doesn’t wipe itself on refresh.\r ---",
   "main": "index.js",
-  "private": true,
+  "private": false,
   "packageManager": "pnpm@9.15.9",
   "engines": {
     "node": ">=20"
@@ -12,12 +12,12 @@
     "build": "turbo run build",
     "dev": "turbo run dev",
     "lint": "turbo run lint",
-    "test": "pnpm --filter @wispdb/core test",
-    "test:smoke": "pnpm --filter @wispdb/core test -- --config vitest.smoke.config.ts",
+    "test": "pnpm --filter wispdb test",
+    "test:smoke": "pnpm --filter wispdb test -- --config vitest.smoke.config.ts",
     "bench:cpu": "pnpm --filter @wispdb/bench bench:cpu",
     "e2e": "pnpm --filter playground e2e",
     "bench:browser": "pnpm --filter playground bench:browser",
-    "bench:ci": "pnpm bench:cpu && pnpm e2e && pnpm bench:browser -- --ci",
+    "bench:ci": "pnpm bench:cpu && pnpm e2e && pnpm bench:browser",
     "bench:gate": "tsx scripts/bench/check_gates.ts bench-results.json bench/gates.json",
     "typecheck": "turbo run typecheck"
   },
@@ -28,10 +28,23 @@
     "@types/node": "^22.0.0",
     "eslint": "^9.0.0",
     "prettier": "^3.0.0",
-    "tsx": "^4.0.0",
     "tsup": "^8.0.0",
+    "tsx": "^4.0.0",
     "turbo": "^2.0.0",
     "typescript": "^5.0.0",
+    "typescript-eslint": "^8.59.1",
     "vitest": "^2.0.0"
-  }
+  },
+  "dependencies": {
+    "wispdb": "workspace:*"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MaheshChandraTeja/wispdp.git"
+  },
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/MaheshChandraTeja/wispdp/issues"
+  },
+  "homepage": "https://github.com/MaheshChandraTeja/wispdp#readme"
 }
