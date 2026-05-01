@@ -23,6 +23,12 @@ export interface VectorStoreSnapshot {
   chunks: Array<{ vecs: ArrayBuffer; tomb: ArrayBuffer }>;
 }
 
+function copyArrayBuffer(view: ArrayBufferView): ArrayBuffer {
+  const copy = new Uint8Array(view.byteLength);
+  copy.set(new Uint8Array(view.buffer, view.byteOffset, view.byteLength));
+  return copy.buffer;
+}
+
 export class VectorStore {
   readonly dim: number;
   readonly chunkRows: number;
@@ -142,8 +148,8 @@ export class VectorStore {
 
   snapshot(): VectorStoreSnapshot {
     const chunks = this.chunks.map((c, i) => ({
-      vecs: c.buffer.slice(0),
-      tomb: this.tombstones[i].buffer.slice(0),
+      vecs: copyArrayBuffer(c),
+      tomb: copyArrayBuffer(this.tombstones[i]),
     }));
     return {
       dim: this.dim,

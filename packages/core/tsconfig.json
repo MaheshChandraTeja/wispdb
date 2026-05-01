@@ -8,5 +8,5 @@
       "@wispdb/gpu/*": ["../gpu/src/*"]
     }
   },
-  "include": ["src"]
+  "include": ["src", "../gpu/src/types.d.ts"]
 }

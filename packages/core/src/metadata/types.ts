@@ -9,7 +9,7 @@ export type WhereValue =
   | string
   | number
   | boolean
-  | { in: Array<string | number | boolean> }
+  | { in: readonly (string | number | boolean)[] }
   | { gt?: number; gte?: number; lt?: number; lte?: number };
 
 export type WhereClause = Record<string, WhereValue>;

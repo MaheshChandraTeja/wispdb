@@ -5,6 +5,12 @@ import type { MetadataStoreV1 } from "../metadata/MetadataStoreV1";
 
 const STATE_KEY = "state" as const;
 
+function copyArrayBuffer(view: ArrayBufferView): ArrayBuffer {
+  const copy = new Uint8Array(view.byteLength);
+  copy.set(new Uint8Array(view.buffer, view.byteOffset, view.byteLength));
+  return copy.buffer;
+}
+
 export class PersistenceV1 {
   private db!: IDBDatabase;
 
@@ -27,7 +33,7 @@ export class PersistenceV1 {
   // ---- Journal ----
 
   async appendUpsert(externalId: string, vec: Float32Array, metaObj: any | undefined): Promise<number> {
-    const vecBuf = vec.buffer.slice(vec.byteOffset, vec.byteOffset + vec.byteLength);
+    const vecBuf = copyArrayBuffer(vec);
 
     return txp(this.db, ["meta", "journal"], "readwrite", async (tx) => {
       const meta = tx.objectStore("meta");
